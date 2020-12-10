@@ -21,7 +21,7 @@ module CatalogInventoryApiClient
     # ID of the resource
     attr_accessor :id
 
-    attr_accessor :info
+    attr_accessor :refresh_status
 
     attr_accessor :refresh_state
 
@@ -45,7 +45,7 @@ module CatalogInventoryApiClient
         :'archived_at' => :'archived_at',
         :'created_at' => :'created_at',
         :'id' => :'id',
-        :'info' => :'info',
+        :'refresh_status' => :'refresh_status',
         :'refresh_state' => :'refresh_state',
         :'bytes_received' => :'bytes_received',
         :'bytes_sent' => :'bytes_sent',
@@ -63,7 +63,7 @@ module CatalogInventoryApiClient
         :'archived_at' => :'DateTime',
         :'created_at' => :'DateTime',
         :'id' => :'String',
-        :'info' => :'Object',
+        :'refresh_status' => :'String',
         :'refresh_state' => :'String',
         :'bytes_received' => :'Integer',
         :'bytes_sent' => :'Integer',
@@ -108,8 +108,8 @@ module CatalogInventoryApiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'info')
-        self.info = attributes[:'info']
+      if attributes.key?(:'refresh_status')
+        self.refresh_status = attributes[:'refresh_status']
       end
 
       if attributes.key?(:'refresh_state')
@@ -183,7 +183,7 @@ module CatalogInventoryApiClient
           archived_at == o.archived_at &&
           created_at == o.created_at &&
           id == o.id &&
-          info == o.info &&
+          refresh_status == o.refresh_status &&
           refresh_state == o.refresh_state &&
           bytes_received == o.bytes_received &&
           bytes_sent == o.bytes_sent &&
@@ -203,7 +203,7 @@ module CatalogInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [archived_at, created_at, id, info, refresh_state, bytes_received, bytes_sent, refresh_started_at, refresh_finished_at, last_successful_refresh_at, uid, updated_at].hash
+      [archived_at, created_at, id, refresh_status, refresh_state, bytes_received, bytes_sent, refresh_started_at, refresh_finished_at, last_successful_refresh_at, uid, updated_at].hash
     end
 
     # Builds the object from hash

@@ -54,6 +54,18 @@ require 'catalog_inventory-api-client-ruby/models/tasks_collection'
 
 # APIs
 require 'catalog_inventory-api-client-ruby/api/default_api'
+require 'catalog_inventory-api-client-ruby/api/service_credential_api'
+require 'catalog_inventory-api-client-ruby/api/service_credential_type_api'
+require 'catalog_inventory-api-client-ruby/api/service_instance_api'
+require 'catalog_inventory-api-client-ruby/api/service_instance_node_api'
+require 'catalog_inventory-api-client-ruby/api/service_inventory_api'
+require 'catalog_inventory-api-client-ruby/api/service_offering_api'
+require 'catalog_inventory-api-client-ruby/api/service_offering_icon_api'
+require 'catalog_inventory-api-client-ruby/api/service_offering_node_api'
+require 'catalog_inventory-api-client-ruby/api/service_plan_api'
+require 'catalog_inventory-api-client-ruby/api/source_api'
+require 'catalog_inventory-api-client-ruby/api/tags_api'
+require 'catalog_inventory-api-client-ruby/api/task_api'
 
 module CatalogInventoryApiClient
   class << self

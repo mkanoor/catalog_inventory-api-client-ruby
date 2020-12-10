@@ -18,6 +18,8 @@ module CatalogInventoryApiClient
 
     attr_accessor :completed_at
 
+    attr_accessor :context
+
     attr_accessor :input
 
     attr_accessor :output
@@ -51,6 +53,7 @@ module CatalogInventoryApiClient
       {
         :'archived_at' => :'archived_at',
         :'completed_at' => :'completed_at',
+        :'context' => :'context',
         :'input' => :'input',
         :'output' => :'output',
         :'created_at' => :'created_at',
@@ -72,6 +75,7 @@ module CatalogInventoryApiClient
       {
         :'archived_at' => :'DateTime',
         :'completed_at' => :'DateTime',
+        :'context' => :'Object',
         :'input' => :'Object',
         :'output' => :'Object',
         :'created_at' => :'DateTime',
@@ -115,6 +119,10 @@ module CatalogInventoryApiClient
 
       if attributes.key?(:'completed_at')
         self.completed_at = attributes[:'completed_at']
+      end
+
+      if attributes.key?(:'context')
+        self.context = attributes[:'context']
       end
 
       if attributes.key?(:'input')
@@ -207,6 +215,7 @@ module CatalogInventoryApiClient
       self.class == o.class &&
           archived_at == o.archived_at &&
           completed_at == o.completed_at &&
+          context == o.context &&
           input == o.input &&
           output == o.output &&
           created_at == o.created_at &&
@@ -231,7 +240,7 @@ module CatalogInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [archived_at, completed_at, input, output, created_at, id, name, source_id, state, status, type, message, target_source_ref, target_type, updated_at].hash
+      [archived_at, completed_at, context, input, output, created_at, id, name, source_id, state, status, type, message, target_source_ref, target_type, updated_at].hash
     end
 
     # Builds the object from hash

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **archived_at** | **DateTime** |  | [optional] [readonly] 
 **created_at** | **DateTime** |  | [optional] [readonly] 
 **id** | **String** | ID of the resource | [optional] [readonly] 
-**info** | [**Object**](.md) |  | [optional] 
+**refresh_status** | **String** |  | [optional] 
 **refresh_state** | **String** |  | [optional] 
 **bytes_received** | **Integer** |  | [optional] 
 **bytes_sent** | **Integer** |  | [optional] 
@@ -25,7 +25,7 @@ require 'CatalogInventoryApiClient'
 instance = CatalogInventoryApiClient::Source.new(archived_at: null,
                                  created_at: null,
                                  id: null,
-                                 info: The version of Tower being used,
+                                 refresh_status: null,
                                  refresh_state: null,
                                  bytes_received: null,
                                  bytes_sent: null,

@@ -64,15 +64,13 @@ CatalogInventoryApiClient.configure do |config|
 end
 
 api_instance = CatalogInventoryApiClient::DefaultApi.new
-id = 'id_example' # String | ID of the resource
-applied_inventories_parameters_service_plan = CatalogInventoryApiClient::AppliedInventoriesParametersServicePlan.new # AppliedInventoriesParametersServicePlan | Parameters defining input data for computing inventories
 
 begin
-  #Invokes computing of ServiceInventories for given ServiceOffering
-  result = api_instance.applied_inventories_for_service_offering(id, applied_inventories_parameters_service_plan)
+  #Return this API document in JSON format
+  result = api_instance.get_documentation
   p result
 rescue CatalogInventoryApiClient::ApiError => e
-  puts "Exception when calling DefaultApi->applied_inventories_for_service_offering: #{e}"
+  puts "Exception when calling DefaultApi->get_documentation: #{e}"
 end
 
 ```
@@ -83,60 +81,60 @@ All URIs are relative to *https://cloud.redhat.com//api/catalog-inventory/v3.0*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*CatalogInventoryApiClient::DefaultApi* | [**applied_inventories_for_service_offering**](docs/DefaultApi.md#applied_inventories_for_service_offering) | **POST** /service_offerings/{id}/applied_inventories | Invokes computing of ServiceInventories for given ServiceOffering
 *CatalogInventoryApiClient::DefaultApi* | [**get_documentation**](docs/DefaultApi.md#get_documentation) | **GET** /openapi.json | Return this API document in JSON format
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_credential_types**](docs/DefaultApi.md#list_service_credential_types) | **GET** /service_credential_types | List ServiceCredentialTypes
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_credentials**](docs/DefaultApi.md#list_service_credentials) | **GET** /service_credentials | List ServiceCredentials
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_instance_node_service_credentials**](docs/DefaultApi.md#list_service_instance_node_service_credentials) | **GET** /service_instance_nodes/{id}/service_credentials | List ServiceCredentials for ServiceInstanceNode
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_instance_nodes**](docs/DefaultApi.md#list_service_instance_nodes) | **GET** /service_instance_nodes | List ServiceInstanceNodes
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_instance_service_credentials**](docs/DefaultApi.md#list_service_instance_service_credentials) | **GET** /service_instances/{id}/service_credentials | List ServiceCredentials for ServiceInstance
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_instance_service_instance_nodes**](docs/DefaultApi.md#list_service_instance_service_instance_nodes) | **GET** /service_instances/{id}/service_instance_nodes | List ServiceInstanceNodes for ServiceInstance
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_instances**](docs/DefaultApi.md#list_service_instances) | **GET** /service_instances | List ServiceInstances
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_inventories**](docs/DefaultApi.md#list_service_inventories) | **GET** /service_inventories | List ServiceInventories
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_inventory_tags**](docs/DefaultApi.md#list_service_inventory_tags) | **GET** /service_inventories/{id}/tags | List Tags for ServiceInventory
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_offering_icons**](docs/DefaultApi.md#list_service_offering_icons) | **GET** /service_offering_icons | List ServiceOfferingIcons
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_offering_node_service_credentials**](docs/DefaultApi.md#list_service_offering_node_service_credentials) | **GET** /service_offering_nodes/{id}/service_credentials | List ServiceCredentials for ServiceOfferingNode
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_offering_nodes**](docs/DefaultApi.md#list_service_offering_nodes) | **GET** /service_offering_nodes | List ServiceOfferingNodes
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_offering_service_credentials**](docs/DefaultApi.md#list_service_offering_service_credentials) | **GET** /service_offerings/{id}/service_credentials | List ServiceCredentials for ServiceOffering
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_offering_service_instances**](docs/DefaultApi.md#list_service_offering_service_instances) | **GET** /service_offerings/{id}/service_instances | List ServiceInstances for ServiceOffering
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_offering_service_offering_nodes**](docs/DefaultApi.md#list_service_offering_service_offering_nodes) | **GET** /service_offerings/{id}/service_offering_nodes | List ServiceOfferingNodes for ServiceOffering
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_offering_service_plans**](docs/DefaultApi.md#list_service_offering_service_plans) | **GET** /service_offerings/{id}/service_plans | List ServicePlans for ServiceOffering
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_offering_tags**](docs/DefaultApi.md#list_service_offering_tags) | **GET** /service_offerings/{id}/tags | List Tags for ServiceOffering
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_offerings**](docs/DefaultApi.md#list_service_offerings) | **GET** /service_offerings | List ServiceOfferings
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_plan_service_instances**](docs/DefaultApi.md#list_service_plan_service_instances) | **GET** /service_plans/{id}/service_instances | List ServiceInstances for ServicePlan
-*CatalogInventoryApiClient::DefaultApi* | [**list_service_plans**](docs/DefaultApi.md#list_service_plans) | **GET** /service_plans | List ServicePlans
-*CatalogInventoryApiClient::DefaultApi* | [**list_source_service_instance_nodes**](docs/DefaultApi.md#list_source_service_instance_nodes) | **GET** /sources/{id}/service_instance_nodes | List ServiceInstanceNodes for Source
-*CatalogInventoryApiClient::DefaultApi* | [**list_source_service_instances**](docs/DefaultApi.md#list_source_service_instances) | **GET** /sources/{id}/service_instances | List ServiceInstances for Source
-*CatalogInventoryApiClient::DefaultApi* | [**list_source_service_inventories**](docs/DefaultApi.md#list_source_service_inventories) | **GET** /sources/{id}/service_inventories | List ServiceInventories for Source
-*CatalogInventoryApiClient::DefaultApi* | [**list_source_service_offering_nodes**](docs/DefaultApi.md#list_source_service_offering_nodes) | **GET** /sources/{id}/service_offering_nodes | List ServiceOfferingNodes for Source
-*CatalogInventoryApiClient::DefaultApi* | [**list_source_service_offerings**](docs/DefaultApi.md#list_source_service_offerings) | **GET** /sources/{id}/service_offerings | List ServiceOfferings for Source
-*CatalogInventoryApiClient::DefaultApi* | [**list_source_service_plans**](docs/DefaultApi.md#list_source_service_plans) | **GET** /sources/{id}/service_plans | List ServicePlans for Source
-*CatalogInventoryApiClient::DefaultApi* | [**list_sources**](docs/DefaultApi.md#list_sources) | **GET** /sources | List Sources
-*CatalogInventoryApiClient::DefaultApi* | [**list_tag_service_inventories**](docs/DefaultApi.md#list_tag_service_inventories) | **GET** /tags/{id}/service_inventories | List ServiceInventories for Tag
-*CatalogInventoryApiClient::DefaultApi* | [**list_tag_service_offerings**](docs/DefaultApi.md#list_tag_service_offerings) | **GET** /tags/{id}/service_offerings | List ServiceOfferings for Tag
-*CatalogInventoryApiClient::DefaultApi* | [**list_tags**](docs/DefaultApi.md#list_tags) | **GET** /tags | List Tags
-*CatalogInventoryApiClient::DefaultApi* | [**list_tasks**](docs/DefaultApi.md#list_tasks) | **GET** /tasks | List Tasks
-*CatalogInventoryApiClient::DefaultApi* | [**order_service_offering**](docs/DefaultApi.md#order_service_offering) | **POST** /service_offerings/{id}/order | Order an existing ServiceOffering
-*CatalogInventoryApiClient::DefaultApi* | [**order_service_plan**](docs/DefaultApi.md#order_service_plan) | **POST** /service_plans/{id}/order | Order an existing ServicePlan
 *CatalogInventoryApiClient::DefaultApi* | [**post_graph_ql**](docs/DefaultApi.md#post_graph_ql) | **POST** /graphql | Perform a GraphQL Query
-*CatalogInventoryApiClient::DefaultApi* | [**show_service_credential**](docs/DefaultApi.md#show_service_credential) | **GET** /service_credentials/{id} | Show an existing ServiceCredential
-*CatalogInventoryApiClient::DefaultApi* | [**show_service_credential_type**](docs/DefaultApi.md#show_service_credential_type) | **GET** /service_credential_types/{id} | Show an existing ServiceCredentialType
-*CatalogInventoryApiClient::DefaultApi* | [**show_service_instance**](docs/DefaultApi.md#show_service_instance) | **GET** /service_instances/{id} | Show an existing ServiceInstance
-*CatalogInventoryApiClient::DefaultApi* | [**show_service_instance_node**](docs/DefaultApi.md#show_service_instance_node) | **GET** /service_instance_nodes/{id} | Show an existing ServiceInstanceNode
-*CatalogInventoryApiClient::DefaultApi* | [**show_service_inventory**](docs/DefaultApi.md#show_service_inventory) | **GET** /service_inventories/{id} | Show an existing ServiceInventory
-*CatalogInventoryApiClient::DefaultApi* | [**show_service_offering**](docs/DefaultApi.md#show_service_offering) | **GET** /service_offerings/{id} | Show an existing ServiceOffering
-*CatalogInventoryApiClient::DefaultApi* | [**show_service_offering_icon**](docs/DefaultApi.md#show_service_offering_icon) | **GET** /service_offering_icons/{id} | Show an existing ServiceOfferingIcon
-*CatalogInventoryApiClient::DefaultApi* | [**show_service_offering_icon_icon_data**](docs/DefaultApi.md#show_service_offering_icon_icon_data) | **GET** /service_offering_icons/{id}/icon_data | Show an existing ServiceOfferingIcon IconData
-*CatalogInventoryApiClient::DefaultApi* | [**show_service_offering_node**](docs/DefaultApi.md#show_service_offering_node) | **GET** /service_offering_nodes/{id} | Show an existing ServiceOfferingNode
-*CatalogInventoryApiClient::DefaultApi* | [**show_service_plan**](docs/DefaultApi.md#show_service_plan) | **GET** /service_plans/{id} | Show an existing ServicePlan
-*CatalogInventoryApiClient::DefaultApi* | [**show_source**](docs/DefaultApi.md#show_source) | **GET** /sources/{id} | Show an existing Source
-*CatalogInventoryApiClient::DefaultApi* | [**show_tag**](docs/DefaultApi.md#show_tag) | **GET** /tags/{id} | Show an existing Tag
-*CatalogInventoryApiClient::DefaultApi* | [**show_task**](docs/DefaultApi.md#show_task) | **GET** /tasks/{id} | Show an existing Task
-*CatalogInventoryApiClient::DefaultApi* | [**tag_service_inventory**](docs/DefaultApi.md#tag_service_inventory) | **POST** /service_inventories/{id}/tag | Tag a ServiceInventory
-*CatalogInventoryApiClient::DefaultApi* | [**tag_service_offering**](docs/DefaultApi.md#tag_service_offering) | **POST** /service_offerings/{id}/tag | Tag a ServiceOffering
-*CatalogInventoryApiClient::DefaultApi* | [**untag_service_inventory**](docs/DefaultApi.md#untag_service_inventory) | **POST** /service_inventories/{id}/untag | Untag a ServiceInventory
-*CatalogInventoryApiClient::DefaultApi* | [**untag_service_offering**](docs/DefaultApi.md#untag_service_offering) | **POST** /service_offerings/{id}/untag | Untag a ServiceOffering
-*CatalogInventoryApiClient::DefaultApi* | [**update_task**](docs/DefaultApi.md#update_task) | **PATCH** /tasks/{id} | Update an existing Task
+*CatalogInventoryApiClient::ServiceCredentialApi* | [**list_service_credentials**](docs/ServiceCredentialApi.md#list_service_credentials) | **GET** /service_credentials | List ServiceCredentials
+*CatalogInventoryApiClient::ServiceCredentialApi* | [**show_service_credential**](docs/ServiceCredentialApi.md#show_service_credential) | **GET** /service_credentials/{id} | Show an existing ServiceCredential
+*CatalogInventoryApiClient::ServiceCredentialTypeApi* | [**list_service_credential_types**](docs/ServiceCredentialTypeApi.md#list_service_credential_types) | **GET** /service_credential_types | List ServiceCredentialTypes
+*CatalogInventoryApiClient::ServiceCredentialTypeApi* | [**show_service_credential_type**](docs/ServiceCredentialTypeApi.md#show_service_credential_type) | **GET** /service_credential_types/{id} | Show an existing ServiceCredentialType
+*CatalogInventoryApiClient::ServiceInstanceApi* | [**list_service_instance_service_credentials**](docs/ServiceInstanceApi.md#list_service_instance_service_credentials) | **GET** /service_instances/{id}/service_credentials | List ServiceCredentials for ServiceInstance
+*CatalogInventoryApiClient::ServiceInstanceApi* | [**list_service_instance_service_instance_nodes**](docs/ServiceInstanceApi.md#list_service_instance_service_instance_nodes) | **GET** /service_instances/{id}/service_instance_nodes | List ServiceInstanceNodes for ServiceInstance
+*CatalogInventoryApiClient::ServiceInstanceApi* | [**list_service_instances**](docs/ServiceInstanceApi.md#list_service_instances) | **GET** /service_instances | List ServiceInstances
+*CatalogInventoryApiClient::ServiceInstanceApi* | [**show_service_instance**](docs/ServiceInstanceApi.md#show_service_instance) | **GET** /service_instances/{id} | Show an existing ServiceInstance
+*CatalogInventoryApiClient::ServiceInstanceNodeApi* | [**list_service_instance_node_service_credentials**](docs/ServiceInstanceNodeApi.md#list_service_instance_node_service_credentials) | **GET** /service_instance_nodes/{id}/service_credentials | List ServiceCredentials for ServiceInstanceNode
+*CatalogInventoryApiClient::ServiceInstanceNodeApi* | [**list_service_instance_nodes**](docs/ServiceInstanceNodeApi.md#list_service_instance_nodes) | **GET** /service_instance_nodes | List ServiceInstanceNodes
+*CatalogInventoryApiClient::ServiceInstanceNodeApi* | [**show_service_instance_node**](docs/ServiceInstanceNodeApi.md#show_service_instance_node) | **GET** /service_instance_nodes/{id} | Show an existing ServiceInstanceNode
+*CatalogInventoryApiClient::ServiceInventoryApi* | [**list_service_inventories**](docs/ServiceInventoryApi.md#list_service_inventories) | **GET** /service_inventories | List ServiceInventories
+*CatalogInventoryApiClient::ServiceInventoryApi* | [**list_service_inventory_tags**](docs/ServiceInventoryApi.md#list_service_inventory_tags) | **GET** /service_inventories/{id}/tags | List Tags for ServiceInventory
+*CatalogInventoryApiClient::ServiceInventoryApi* | [**show_service_inventory**](docs/ServiceInventoryApi.md#show_service_inventory) | **GET** /service_inventories/{id} | Show an existing ServiceInventory
+*CatalogInventoryApiClient::ServiceInventoryApi* | [**tag_service_inventory**](docs/ServiceInventoryApi.md#tag_service_inventory) | **POST** /service_inventories/{id}/tag | Tag a ServiceInventory
+*CatalogInventoryApiClient::ServiceInventoryApi* | [**untag_service_inventory**](docs/ServiceInventoryApi.md#untag_service_inventory) | **POST** /service_inventories/{id}/untag | Untag a ServiceInventory
+*CatalogInventoryApiClient::ServiceOfferingApi* | [**applied_inventories_for_service_offering**](docs/ServiceOfferingApi.md#applied_inventories_for_service_offering) | **POST** /service_offerings/{id}/applied_inventories | Invokes computing of ServiceInventories for given ServiceOffering
+*CatalogInventoryApiClient::ServiceOfferingApi* | [**list_service_offering_service_credentials**](docs/ServiceOfferingApi.md#list_service_offering_service_credentials) | **GET** /service_offerings/{id}/service_credentials | List ServiceCredentials for ServiceOffering
+*CatalogInventoryApiClient::ServiceOfferingApi* | [**list_service_offering_service_instances**](docs/ServiceOfferingApi.md#list_service_offering_service_instances) | **GET** /service_offerings/{id}/service_instances | List ServiceInstances for ServiceOffering
+*CatalogInventoryApiClient::ServiceOfferingApi* | [**list_service_offering_service_offering_nodes**](docs/ServiceOfferingApi.md#list_service_offering_service_offering_nodes) | **GET** /service_offerings/{id}/service_offering_nodes | List ServiceOfferingNodes for ServiceOffering
+*CatalogInventoryApiClient::ServiceOfferingApi* | [**list_service_offering_service_plans**](docs/ServiceOfferingApi.md#list_service_offering_service_plans) | **GET** /service_offerings/{id}/service_plans | List ServicePlans for ServiceOffering
+*CatalogInventoryApiClient::ServiceOfferingApi* | [**list_service_offering_tags**](docs/ServiceOfferingApi.md#list_service_offering_tags) | **GET** /service_offerings/{id}/tags | List Tags for ServiceOffering
+*CatalogInventoryApiClient::ServiceOfferingApi* | [**list_service_offerings**](docs/ServiceOfferingApi.md#list_service_offerings) | **GET** /service_offerings | List ServiceOfferings
+*CatalogInventoryApiClient::ServiceOfferingApi* | [**order_service_offering**](docs/ServiceOfferingApi.md#order_service_offering) | **POST** /service_offerings/{id}/order | Order an existing ServiceOffering
+*CatalogInventoryApiClient::ServiceOfferingApi* | [**show_service_offering**](docs/ServiceOfferingApi.md#show_service_offering) | **GET** /service_offerings/{id} | Show an existing ServiceOffering
+*CatalogInventoryApiClient::ServiceOfferingApi* | [**tag_service_offering**](docs/ServiceOfferingApi.md#tag_service_offering) | **POST** /service_offerings/{id}/tag | Tag a ServiceOffering
+*CatalogInventoryApiClient::ServiceOfferingApi* | [**untag_service_offering**](docs/ServiceOfferingApi.md#untag_service_offering) | **POST** /service_offerings/{id}/untag | Untag a ServiceOffering
+*CatalogInventoryApiClient::ServiceOfferingIconApi* | [**list_service_offering_icons**](docs/ServiceOfferingIconApi.md#list_service_offering_icons) | **GET** /service_offering_icons | List ServiceOfferingIcons
+*CatalogInventoryApiClient::ServiceOfferingIconApi* | [**show_service_offering_icon**](docs/ServiceOfferingIconApi.md#show_service_offering_icon) | **GET** /service_offering_icons/{id} | Show an existing ServiceOfferingIcon
+*CatalogInventoryApiClient::ServiceOfferingIconApi* | [**show_service_offering_icon_icon_data**](docs/ServiceOfferingIconApi.md#show_service_offering_icon_icon_data) | **GET** /service_offering_icons/{id}/icon_data | Show an existing ServiceOfferingIcon IconData
+*CatalogInventoryApiClient::ServiceOfferingNodeApi* | [**list_service_offering_node_service_credentials**](docs/ServiceOfferingNodeApi.md#list_service_offering_node_service_credentials) | **GET** /service_offering_nodes/{id}/service_credentials | List ServiceCredentials for ServiceOfferingNode
+*CatalogInventoryApiClient::ServiceOfferingNodeApi* | [**list_service_offering_nodes**](docs/ServiceOfferingNodeApi.md#list_service_offering_nodes) | **GET** /service_offering_nodes | List ServiceOfferingNodes
+*CatalogInventoryApiClient::ServiceOfferingNodeApi* | [**show_service_offering_node**](docs/ServiceOfferingNodeApi.md#show_service_offering_node) | **GET** /service_offering_nodes/{id} | Show an existing ServiceOfferingNode
+*CatalogInventoryApiClient::ServicePlanApi* | [**list_service_plan_service_instances**](docs/ServicePlanApi.md#list_service_plan_service_instances) | **GET** /service_plans/{id}/service_instances | List ServiceInstances for ServicePlan
+*CatalogInventoryApiClient::ServicePlanApi* | [**list_service_plans**](docs/ServicePlanApi.md#list_service_plans) | **GET** /service_plans | List ServicePlans
+*CatalogInventoryApiClient::ServicePlanApi* | [**order_service_plan**](docs/ServicePlanApi.md#order_service_plan) | **POST** /service_plans/{id}/order | Order an existing ServicePlan
+*CatalogInventoryApiClient::ServicePlanApi* | [**show_service_plan**](docs/ServicePlanApi.md#show_service_plan) | **GET** /service_plans/{id} | Show an existing ServicePlan
+*CatalogInventoryApiClient::SourceApi* | [**list_source_service_instance_nodes**](docs/SourceApi.md#list_source_service_instance_nodes) | **GET** /sources/{id}/service_instance_nodes | List ServiceInstanceNodes for Source
+*CatalogInventoryApiClient::SourceApi* | [**list_source_service_instances**](docs/SourceApi.md#list_source_service_instances) | **GET** /sources/{id}/service_instances | List ServiceInstances for Source
+*CatalogInventoryApiClient::SourceApi* | [**list_source_service_inventories**](docs/SourceApi.md#list_source_service_inventories) | **GET** /sources/{id}/service_inventories | List ServiceInventories for Source
+*CatalogInventoryApiClient::SourceApi* | [**list_source_service_offering_nodes**](docs/SourceApi.md#list_source_service_offering_nodes) | **GET** /sources/{id}/service_offering_nodes | List ServiceOfferingNodes for Source
+*CatalogInventoryApiClient::SourceApi* | [**list_source_service_offerings**](docs/SourceApi.md#list_source_service_offerings) | **GET** /sources/{id}/service_offerings | List ServiceOfferings for Source
+*CatalogInventoryApiClient::SourceApi* | [**list_source_service_plans**](docs/SourceApi.md#list_source_service_plans) | **GET** /sources/{id}/service_plans | List ServicePlans for Source
+*CatalogInventoryApiClient::SourceApi* | [**list_sources**](docs/SourceApi.md#list_sources) | **GET** /sources | List Sources
+*CatalogInventoryApiClient::SourceApi* | [**show_source**](docs/SourceApi.md#show_source) | **GET** /sources/{id} | Show an existing Source
+*CatalogInventoryApiClient::TagsApi* | [**list_tag_service_inventories**](docs/TagsApi.md#list_tag_service_inventories) | **GET** /tags/{id}/service_inventories | List ServiceInventories for Tag
+*CatalogInventoryApiClient::TagsApi* | [**list_tag_service_offerings**](docs/TagsApi.md#list_tag_service_offerings) | **GET** /tags/{id}/service_offerings | List ServiceOfferings for Tag
+*CatalogInventoryApiClient::TagsApi* | [**list_tags**](docs/TagsApi.md#list_tags) | **GET** /tags | List Tags
+*CatalogInventoryApiClient::TagsApi* | [**show_tag**](docs/TagsApi.md#show_tag) | **GET** /tags/{id} | Show an existing Tag
+*CatalogInventoryApiClient::TaskApi* | [**list_tasks**](docs/TaskApi.md#list_tasks) | **GET** /tasks | List Tasks
+*CatalogInventoryApiClient::TaskApi* | [**show_task**](docs/TaskApi.md#show_task) | **GET** /tasks/{id} | Show an existing Task
+*CatalogInventoryApiClient::TaskApi* | [**update_task**](docs/TaskApi.md#update_task) | **PATCH** /tasks/{id} | Update an existing Task
 
 
 ## Documentation for Models

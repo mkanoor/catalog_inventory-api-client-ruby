@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **data** | **String** | Raw icon data | [optional] [readonly] 
 **id** | **String** | ID of the resource | [optional] [readonly] 
 **last_seen_at** | **DateTime** |  | [optional] [readonly] 
-**refresh_state_part_id** | **String** | ID of the resource | [optional] [readonly] 
 **source_id** | **String** | ID of the resource | [optional] [readonly] 
 **source_ref** | **String** |  | [optional] [readonly] 
 **updated_at** | **DateTime** |  | [optional] [readonly] 
@@ -24,7 +23,6 @@ instance = CatalogInventoryApiClient::ServiceOfferingIcon.new(archived_at: null,
                                  data: null,
                                  id: null,
                                  last_seen_at: null,
-                                 refresh_state_part_id: null,
                                  source_id: null,
                                  source_ref: icon-mariadb,
                                  updated_at: null)

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **id** | **String** | ID of the resource | [optional] [readonly] 
 **last_seen_at** | **DateTime** |  | [optional] [readonly] 
 **name** | **String** |  | [optional] [readonly] 
-**refresh_state_part_id** | **String** | ID of the resource | [optional] [readonly] 
 **service_credential_type_id** | **String** | ID of the resource | [optional] [readonly] 
 **source_created_at** | **DateTime** |  | [optional] [readonly] 
 **source_id** | **String** | ID of the resource | [optional] [readonly] 
@@ -30,7 +29,6 @@ instance = CatalogInventoryApiClient::ServiceCredential.new(archived_at: null,
                                  id: null,
                                  last_seen_at: null,
                                  name: null,
-                                 refresh_state_part_id: null,
                                  service_credential_type_id: null,
                                  source_created_at: null,
                                  source_id: null,
