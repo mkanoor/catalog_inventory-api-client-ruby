@@ -1,0 +1,8 @@
+{
+	"moduleName": "CatalogInventoryApiClient",
+	"gemName": "catalog_inventory-api-client-ruby",
+	"gemHomepage" : "https://github.com/RedHatInsights/catalog_inventory-api-client-ruby",
+	"gemAuthor" : "RedHatInsights Authors",
+	"gemLicense" : "Apache-2.0",
+	"gemDescription" : "Ruby client gem to connect to RedHatInsights Catalog Inventory Service"
+}
