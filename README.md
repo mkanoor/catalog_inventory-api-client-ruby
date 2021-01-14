@@ -140,13 +140,18 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [CatalogInventoryApiClient::AppliedInventoriesParametersServicePlan](docs/AppliedInventoriesParametersServicePlan.md)
+ - [CatalogInventoryApiClient::CheckAvailabilityTask](docs/CheckAvailabilityTask.md)
  - [CatalogInventoryApiClient::CollectionLinks](docs/CollectionLinks.md)
  - [CatalogInventoryApiClient::CollectionMetadata](docs/CollectionMetadata.md)
  - [CatalogInventoryApiClient::ErrorNotFound](docs/ErrorNotFound.md)
  - [CatalogInventoryApiClient::ErrorNotFoundErrors](docs/ErrorNotFoundErrors.md)
+ - [CatalogInventoryApiClient::FullRefreshPersisterTask](docs/FullRefreshPersisterTask.md)
+ - [CatalogInventoryApiClient::FullRefreshUploadTask](docs/FullRefreshUploadTask.md)
  - [CatalogInventoryApiClient::GraphQLRequest](docs/GraphQLRequest.md)
  - [CatalogInventoryApiClient::GraphQLResponse](docs/GraphQLResponse.md)
+ - [CatalogInventoryApiClient::IncrementalRefreshUploadTask](docs/IncrementalRefreshUploadTask.md)
  - [CatalogInventoryApiClient::InlineResponse200](docs/InlineResponse200.md)
+ - [CatalogInventoryApiClient::LaunchJobTask](docs/LaunchJobTask.md)
  - [CatalogInventoryApiClient::OrderParametersServiceOffering](docs/OrderParametersServiceOffering.md)
  - [CatalogInventoryApiClient::OrderParametersServicePlan](docs/OrderParametersServicePlan.md)
  - [CatalogInventoryApiClient::ServiceCredential](docs/ServiceCredential.md)

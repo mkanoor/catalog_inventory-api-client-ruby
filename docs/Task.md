@@ -6,8 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **archived_at** | **DateTime** |  | [optional] [readonly] 
 **completed_at** | **DateTime** |  | [optional] 
-**context** | [**Object**](.md) |  | [optional] 
-**input** | [**Object**](.md) |  | [optional] 
+**input** | [**Object**](.md) |  | [optional] [readonly] 
 **output** | [**Object**](.md) |  | [optional] 
 **created_at** | **DateTime** |  | [optional] [readonly] 
 **id** | **String** | UUID of task | [optional] [readonly] 
@@ -28,7 +27,6 @@ require 'CatalogInventoryApiClient'
 
 instance = CatalogInventoryApiClient::Task.new(archived_at: null,
                                  completed_at: null,
-                                 context: Extra information about this task, e.g. x-rh-identity,
                                  input: Task payload input content,
                                  output: Result of Task Execution,
                                  created_at: null,

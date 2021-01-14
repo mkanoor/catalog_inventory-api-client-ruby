@@ -2468,6 +2468,10 @@
             "type": "object",
             "description": "JSON object with provisioning parameters"
           },
+          "provider_control_parameters": {
+            "type": "object",
+            "description": "The provider specific parameters needed to provision this service. This might include namespaces, special keys"
+          },
           "service_plan_id": {
             "$ref": "#/components/schemas/ID"
           }
@@ -2515,6 +2519,9 @@
           "name": {
             "readOnly": true,
             "type": "string"
+          },
+          "refresh_state_part_id": {
+            "$ref": "#/components/schemas/ID"
           },
           "service_credential_type_id": {
             "$ref": "#/components/schemas/ID"
@@ -2584,6 +2591,9 @@
           "namespace": {
             "readOnly": true,
             "type": "string"
+          },
+          "refresh_state_part_id": {
+            "$ref": "#/components/schemas/ID"
           },
           "source_created_at": {
             "format": "date-time",
@@ -2680,6 +2690,9 @@
             "title": "Name",
             "type": "string"
           },
+          "refresh_state_part_id": {
+            "$ref": "#/components/schemas/ID"
+          },
           "root_service_instance_id": {
             "$ref": "#/components/schemas/ID"
           },
@@ -2744,6 +2757,9 @@
           },
           "name": {
             "type": "string"
+          },
+          "refresh_state_part_id": {
+            "$ref": "#/components/schemas/ID"
           },
           "root_service_instance_id": {
             "$ref": "#/components/schemas/ID"
@@ -2860,6 +2876,9 @@
             "readOnly": true,
             "type": "string"
           },
+          "refresh_state_part_id": {
+            "$ref": "#/components/schemas/ID"
+          },
           "source_created_at": {
             "format": "date-time",
             "readOnly": true,
@@ -2947,6 +2966,9 @@
             "title": "Name",
             "type": "string"
           },
+          "refresh_state_part_id": {
+            "$ref": "#/components/schemas/ID"
+          },
           "service_inventory_id": {
             "$ref": "#/components/schemas/ID"
           },
@@ -3014,6 +3036,9 @@
             "readOnly": true,
             "type": "string"
           },
+          "refresh_state_part_id": {
+            "$ref": "#/components/schemas/ID"
+          },
           "source_id": {
             "$ref": "#/components/schemas/ID"
           },
@@ -3073,6 +3098,9 @@
           },
           "name": {
             "type": "string"
+          },
+          "refresh_state_part_id": {
+            "$ref": "#/components/schemas/ID"
           },
           "root_service_offering_id": {
             "$ref": "#/components/schemas/ID"
@@ -3181,6 +3209,9 @@
             "title": "Name",
             "type": "string"
           },
+          "refresh_state_part_id": {
+            "$ref": "#/components/schemas/ID"
+          },
           "resource_version": {
             "readOnly": true,
             "type": "string"
@@ -3251,8 +3282,23 @@
           "id": {
             "$ref": "#/components/schemas/ID"
           },
-          "refresh_status": {
+          "info": {
+            "example": "The version of Tower being used",
+            "title": "Info",
+            "readOnly": true,
+            "type": "object"
+          },
+          "mqtt_client_id": {
+            "example": "The GUID of MQTT client being used",
+            "title": "MqttClientId",
+            "readOnly": true,
             "type": "string"
+          },
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled",
+            "default": false,
+            "readOnly": true
           },
           "refresh_state": {
             "type": "string"
@@ -3273,7 +3319,22 @@
             "readOnly": true,
             "type": "string"
           },
+          "availability_status": {
+            "example": "The availability status of source",
+            "title": "AvailabilityStatus",
+            "type": "string"
+          },
           "last_successful_refresh_at": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "last_checked_at": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "last_available_at": {
             "format": "date-time",
             "readOnly": true,
             "type": "string"
@@ -3347,14 +3408,10 @@
             "format": "date-time",
             "type": "string"
           },
-          "context": {
-            "example": "Extra information about this task, e.g. x-rh-identity",
-            "title": "Context",
-            "type": "object"
-          },
           "input": {
             "example": "Task payload input content",
             "title": "Content",
+            "readOnly": true,
             "type": "object"
           },
           "output": {
@@ -3411,6 +3468,21 @@
           }
         },
         "additionalProperties": false
+      },
+      "IncrementalRefreshUploadTask": {
+        "$ref": "#/components/schemas/Task"
+      },
+      "FullRefreshUploadTask": {
+        "$ref": "#/components/schemas/Task"
+      },
+      "CheckAvailabilityTask": {
+        "$ref": "#/components/schemas/Task"
+      },
+      "LaunchJobTask": {
+        "$ref": "#/components/schemas/Task"
+      },
+      "FullRefreshPersisterTask": {
+        "$ref": "#/components/schemas/Task"
       },
       "TasksCollection": {
         "type": "object",

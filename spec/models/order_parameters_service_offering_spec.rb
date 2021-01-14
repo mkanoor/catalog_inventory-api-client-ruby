@@ -38,6 +38,12 @@ describe 'OrderParametersServiceOffering' do
     end
   end
 
+  describe 'test attribute "provider_control_parameters"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "service_plan_id"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

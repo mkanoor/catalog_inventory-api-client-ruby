@@ -21,7 +21,11 @@ module CatalogInventoryApiClient
     # ID of the resource
     attr_accessor :id
 
-    attr_accessor :refresh_status
+    attr_accessor :info
+
+    attr_accessor :mqtt_client_id
+
+    attr_accessor :enabled
 
     attr_accessor :refresh_state
 
@@ -33,7 +37,13 @@ module CatalogInventoryApiClient
 
     attr_accessor :refresh_finished_at
 
+    attr_accessor :availability_status
+
     attr_accessor :last_successful_refresh_at
+
+    attr_accessor :last_checked_at
+
+    attr_accessor :last_available_at
 
     attr_accessor :uid
 
@@ -45,13 +55,18 @@ module CatalogInventoryApiClient
         :'archived_at' => :'archived_at',
         :'created_at' => :'created_at',
         :'id' => :'id',
-        :'refresh_status' => :'refresh_status',
+        :'info' => :'info',
+        :'mqtt_client_id' => :'mqtt_client_id',
+        :'enabled' => :'enabled',
         :'refresh_state' => :'refresh_state',
         :'bytes_received' => :'bytes_received',
         :'bytes_sent' => :'bytes_sent',
         :'refresh_started_at' => :'refresh_started_at',
         :'refresh_finished_at' => :'refresh_finished_at',
+        :'availability_status' => :'availability_status',
         :'last_successful_refresh_at' => :'last_successful_refresh_at',
+        :'last_checked_at' => :'last_checked_at',
+        :'last_available_at' => :'last_available_at',
         :'uid' => :'uid',
         :'updated_at' => :'updated_at'
       }
@@ -63,13 +78,18 @@ module CatalogInventoryApiClient
         :'archived_at' => :'DateTime',
         :'created_at' => :'DateTime',
         :'id' => :'String',
-        :'refresh_status' => :'String',
+        :'info' => :'Object',
+        :'mqtt_client_id' => :'String',
+        :'enabled' => :'Boolean',
         :'refresh_state' => :'String',
         :'bytes_received' => :'Integer',
         :'bytes_sent' => :'Integer',
         :'refresh_started_at' => :'DateTime',
         :'refresh_finished_at' => :'DateTime',
+        :'availability_status' => :'String',
         :'last_successful_refresh_at' => :'DateTime',
+        :'last_checked_at' => :'DateTime',
+        :'last_available_at' => :'DateTime',
         :'uid' => :'String',
         :'updated_at' => :'DateTime'
       }
@@ -108,8 +128,18 @@ module CatalogInventoryApiClient
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'refresh_status')
-        self.refresh_status = attributes[:'refresh_status']
+      if attributes.key?(:'info')
+        self.info = attributes[:'info']
+      end
+
+      if attributes.key?(:'mqtt_client_id')
+        self.mqtt_client_id = attributes[:'mqtt_client_id']
+      end
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      else
+        self.enabled = false
       end
 
       if attributes.key?(:'refresh_state')
@@ -132,8 +162,20 @@ module CatalogInventoryApiClient
         self.refresh_finished_at = attributes[:'refresh_finished_at']
       end
 
+      if attributes.key?(:'availability_status')
+        self.availability_status = attributes[:'availability_status']
+      end
+
       if attributes.key?(:'last_successful_refresh_at')
         self.last_successful_refresh_at = attributes[:'last_successful_refresh_at']
+      end
+
+      if attributes.key?(:'last_checked_at')
+        self.last_checked_at = attributes[:'last_checked_at']
+      end
+
+      if attributes.key?(:'last_available_at')
+        self.last_available_at = attributes[:'last_available_at']
       end
 
       if attributes.key?(:'uid')
@@ -183,13 +225,18 @@ module CatalogInventoryApiClient
           archived_at == o.archived_at &&
           created_at == o.created_at &&
           id == o.id &&
-          refresh_status == o.refresh_status &&
+          info == o.info &&
+          mqtt_client_id == o.mqtt_client_id &&
+          enabled == o.enabled &&
           refresh_state == o.refresh_state &&
           bytes_received == o.bytes_received &&
           bytes_sent == o.bytes_sent &&
           refresh_started_at == o.refresh_started_at &&
           refresh_finished_at == o.refresh_finished_at &&
+          availability_status == o.availability_status &&
           last_successful_refresh_at == o.last_successful_refresh_at &&
+          last_checked_at == o.last_checked_at &&
+          last_available_at == o.last_available_at &&
           uid == o.uid &&
           updated_at == o.updated_at
     end
@@ -203,7 +250,7 @@ module CatalogInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [archived_at, created_at, id, refresh_status, refresh_state, bytes_received, bytes_sent, refresh_started_at, refresh_finished_at, last_successful_refresh_at, uid, updated_at].hash
+      [archived_at, created_at, id, info, mqtt_client_id, enabled, refresh_state, bytes_received, bytes_sent, refresh_started_at, refresh_finished_at, availability_status, last_successful_refresh_at, last_checked_at, last_available_at, uid, updated_at].hash
     end
 
     # Builds the object from hash

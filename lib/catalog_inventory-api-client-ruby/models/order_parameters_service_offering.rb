@@ -17,6 +17,9 @@ module CatalogInventoryApiClient
     # JSON object with provisioning parameters
     attr_accessor :service_parameters
 
+    # The provider specific parameters needed to provision this service. This might include namespaces, special keys
+    attr_accessor :provider_control_parameters
+
     # ID of the resource
     attr_accessor :service_plan_id
 
@@ -24,6 +27,7 @@ module CatalogInventoryApiClient
     def self.attribute_map
       {
         :'service_parameters' => :'service_parameters',
+        :'provider_control_parameters' => :'provider_control_parameters',
         :'service_plan_id' => :'service_plan_id'
       }
     end
@@ -32,6 +36,7 @@ module CatalogInventoryApiClient
     def self.openapi_types
       {
         :'service_parameters' => :'Object',
+        :'provider_control_parameters' => :'Object',
         :'service_plan_id' => :'String'
       }
     end
@@ -59,6 +64,10 @@ module CatalogInventoryApiClient
 
       if attributes.key?(:'service_parameters')
         self.service_parameters = attributes[:'service_parameters']
+      end
+
+      if attributes.key?(:'provider_control_parameters')
+        self.provider_control_parameters = attributes[:'provider_control_parameters']
       end
 
       if attributes.key?(:'service_plan_id')
@@ -102,6 +111,7 @@ module CatalogInventoryApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           service_parameters == o.service_parameters &&
+          provider_control_parameters == o.provider_control_parameters &&
           service_plan_id == o.service_plan_id
     end
 
@@ -114,7 +124,7 @@ module CatalogInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [service_parameters, service_plan_id].hash
+      [service_parameters, provider_control_parameters, service_plan_id].hash
     end
 
     # Builds the object from hash

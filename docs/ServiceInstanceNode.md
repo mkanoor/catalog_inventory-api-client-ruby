@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **id** | **String** | ID of the resource | [optional] [readonly] 
 **last_seen_at** | **DateTime** |  | [optional] [readonly] 
 **name** | **String** |  | [optional] 
+**refresh_state_part_id** | **String** | ID of the resource | [optional] [readonly] 
 **root_service_instance_id** | **String** | ID of the resource | [optional] [readonly] 
 **service_instance_id** | **String** | ID of the resource | [optional] [readonly] 
 **service_inventory_id** | **String** | ID of the resource | [optional] [readonly] 
@@ -30,6 +31,7 @@ instance = CatalogInventoryApiClient::ServiceInstanceNode.new(archived_at: null,
                                  id: null,
                                  last_seen_at: null,
                                  name: null,
+                                 refresh_state_part_id: null,
                                  root_service_instance_id: null,
                                  service_instance_id: null,
                                  service_inventory_id: null,

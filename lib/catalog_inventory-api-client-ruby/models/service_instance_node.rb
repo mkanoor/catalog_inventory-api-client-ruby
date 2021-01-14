@@ -28,6 +28,9 @@ module CatalogInventoryApiClient
     attr_accessor :name
 
     # ID of the resource
+    attr_accessor :refresh_state_part_id
+
+    # ID of the resource
     attr_accessor :root_service_instance_id
 
     # ID of the resource
@@ -56,6 +59,7 @@ module CatalogInventoryApiClient
         :'id' => :'id',
         :'last_seen_at' => :'last_seen_at',
         :'name' => :'name',
+        :'refresh_state_part_id' => :'refresh_state_part_id',
         :'root_service_instance_id' => :'root_service_instance_id',
         :'service_instance_id' => :'service_instance_id',
         :'service_inventory_id' => :'service_inventory_id',
@@ -76,6 +80,7 @@ module CatalogInventoryApiClient
         :'id' => :'String',
         :'last_seen_at' => :'DateTime',
         :'name' => :'String',
+        :'refresh_state_part_id' => :'String',
         :'root_service_instance_id' => :'String',
         :'service_instance_id' => :'String',
         :'service_inventory_id' => :'String',
@@ -132,6 +137,10 @@ module CatalogInventoryApiClient
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'refresh_state_part_id')
+        self.refresh_state_part_id = attributes[:'refresh_state_part_id']
+      end
+
       if attributes.key?(:'root_service_instance_id')
         self.root_service_instance_id = attributes[:'root_service_instance_id']
       end
@@ -175,6 +184,11 @@ module CatalogInventoryApiClient
       end
 
       pattern = Regexp.new(/^\d+$/)
+      if !@refresh_state_part_id.nil? && @refresh_state_part_id !~ pattern
+        invalid_properties.push("invalid value for \"refresh_state_part_id\", must conform to the pattern #{pattern}.")
+      end
+
+      pattern = Regexp.new(/^\d+$/)
       if !@root_service_instance_id.nil? && @root_service_instance_id !~ pattern
         invalid_properties.push("invalid value for \"root_service_instance_id\", must conform to the pattern #{pattern}.")
       end
@@ -201,6 +215,7 @@ module CatalogInventoryApiClient
     # @return true if the model is valid
     def valid?
       return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+      return false if !@refresh_state_part_id.nil? && @refresh_state_part_id !~ Regexp.new(/^\d+$/)
       return false if !@root_service_instance_id.nil? && @root_service_instance_id !~ Regexp.new(/^\d+$/)
       return false if !@service_instance_id.nil? && @service_instance_id !~ Regexp.new(/^\d+$/)
       return false if !@service_inventory_id.nil? && @service_inventory_id !~ Regexp.new(/^\d+$/)
@@ -217,6 +232,17 @@ module CatalogInventoryApiClient
       end
 
       @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] refresh_state_part_id Value to be assigned
+    def refresh_state_part_id=(refresh_state_part_id)
+      pattern = Regexp.new(/^\d+$/)
+      if !refresh_state_part_id.nil? && refresh_state_part_id !~ pattern
+        fail ArgumentError, "invalid value for \"refresh_state_part_id\", must conform to the pattern #{pattern}."
+      end
+
+      @refresh_state_part_id = refresh_state_part_id
     end
 
     # Custom attribute writer method with validation
@@ -274,6 +300,7 @@ module CatalogInventoryApiClient
           id == o.id &&
           last_seen_at == o.last_seen_at &&
           name == o.name &&
+          refresh_state_part_id == o.refresh_state_part_id &&
           root_service_instance_id == o.root_service_instance_id &&
           service_instance_id == o.service_instance_id &&
           service_inventory_id == o.service_inventory_id &&
@@ -293,7 +320,7 @@ module CatalogInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [archived_at, created_at, extra, id, last_seen_at, name, root_service_instance_id, service_instance_id, service_inventory_id, source_created_at, source_id, source_ref, source_updated_at, updated_at].hash
+      [archived_at, created_at, extra, id, last_seen_at, name, refresh_state_part_id, root_service_instance_id, service_instance_id, service_inventory_id, source_created_at, source_id, source_ref, source_updated_at, updated_at].hash
     end
 
     # Builds the object from hash

@@ -29,6 +29,9 @@ module CatalogInventoryApiClient
 
     attr_accessor :name
 
+    # ID of the resource
+    attr_accessor :refresh_state_part_id
+
     attr_accessor :source_created_at
 
     # ID of the resource
@@ -50,6 +53,7 @@ module CatalogInventoryApiClient
         :'id' => :'id',
         :'last_seen_at' => :'last_seen_at',
         :'name' => :'name',
+        :'refresh_state_part_id' => :'refresh_state_part_id',
         :'source_created_at' => :'source_created_at',
         :'source_id' => :'source_id',
         :'source_ref' => :'source_ref',
@@ -68,6 +72,7 @@ module CatalogInventoryApiClient
         :'id' => :'String',
         :'last_seen_at' => :'DateTime',
         :'name' => :'String',
+        :'refresh_state_part_id' => :'String',
         :'source_created_at' => :'DateTime',
         :'source_id' => :'String',
         :'source_ref' => :'String',
@@ -125,6 +130,10 @@ module CatalogInventoryApiClient
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'refresh_state_part_id')
+        self.refresh_state_part_id = attributes[:'refresh_state_part_id']
+      end
+
       if attributes.key?(:'source_created_at')
         self.source_created_at = attributes[:'source_created_at']
       end
@@ -156,6 +165,11 @@ module CatalogInventoryApiClient
       end
 
       pattern = Regexp.new(/^\d+$/)
+      if !@refresh_state_part_id.nil? && @refresh_state_part_id !~ pattern
+        invalid_properties.push("invalid value for \"refresh_state_part_id\", must conform to the pattern #{pattern}.")
+      end
+
+      pattern = Regexp.new(/^\d+$/)
       if !@source_id.nil? && @source_id !~ pattern
         invalid_properties.push("invalid value for \"source_id\", must conform to the pattern #{pattern}.")
       end
@@ -167,6 +181,7 @@ module CatalogInventoryApiClient
     # @return true if the model is valid
     def valid?
       return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+      return false if !@refresh_state_part_id.nil? && @refresh_state_part_id !~ Regexp.new(/^\d+$/)
       return false if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
       true
     end
@@ -180,6 +195,17 @@ module CatalogInventoryApiClient
       end
 
       @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] refresh_state_part_id Value to be assigned
+    def refresh_state_part_id=(refresh_state_part_id)
+      pattern = Regexp.new(/^\d+$/)
+      if !refresh_state_part_id.nil? && refresh_state_part_id !~ pattern
+        fail ArgumentError, "invalid value for \"refresh_state_part_id\", must conform to the pattern #{pattern}."
+      end
+
+      @refresh_state_part_id = refresh_state_part_id
     end
 
     # Custom attribute writer method with validation
@@ -205,6 +231,7 @@ module CatalogInventoryApiClient
           id == o.id &&
           last_seen_at == o.last_seen_at &&
           name == o.name &&
+          refresh_state_part_id == o.refresh_state_part_id &&
           source_created_at == o.source_created_at &&
           source_id == o.source_id &&
           source_ref == o.source_ref &&
@@ -221,7 +248,7 @@ module CatalogInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [archived_at, created_at, description, extra, id, last_seen_at, name, source_created_at, source_id, source_ref, source_updated_at, updated_at].hash
+      [archived_at, created_at, description, extra, id, last_seen_at, name, refresh_state_part_id, source_created_at, source_id, source_ref, source_updated_at, updated_at].hash
     end
 
     # Builds the object from hash

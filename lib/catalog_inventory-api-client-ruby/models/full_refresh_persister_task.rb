@@ -13,78 +13,16 @@ OpenAPI Generator version: 4.2.2
 require 'date'
 
 module CatalogInventoryApiClient
-  class Task
-    attr_accessor :archived_at
-
-    attr_accessor :completed_at
-
-    attr_accessor :input
-
-    attr_accessor :output
-
-    attr_accessor :created_at
-
-    # UUID of task
-    attr_accessor :id
-
-    attr_accessor :name
-
-    # ID of the resource
-    attr_accessor :source_id
-
-    attr_accessor :state
-
-    attr_accessor :status
-
-    attr_accessor :type
-
-    attr_accessor :message
-
-    attr_accessor :target_source_ref
-
-    attr_accessor :target_type
-
-    attr_accessor :updated_at
-
+  class FullRefreshPersisterTask
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'archived_at' => :'archived_at',
-        :'completed_at' => :'completed_at',
-        :'input' => :'input',
-        :'output' => :'output',
-        :'created_at' => :'created_at',
-        :'id' => :'id',
-        :'name' => :'name',
-        :'source_id' => :'source_id',
-        :'state' => :'state',
-        :'status' => :'status',
-        :'type' => :'type',
-        :'message' => :'message',
-        :'target_source_ref' => :'target_source_ref',
-        :'target_type' => :'target_type',
-        :'updated_at' => :'updated_at'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'archived_at' => :'DateTime',
-        :'completed_at' => :'DateTime',
-        :'input' => :'Object',
-        :'output' => :'Object',
-        :'created_at' => :'DateTime',
-        :'id' => :'String',
-        :'name' => :'String',
-        :'source_id' => :'String',
-        :'state' => :'String',
-        :'status' => :'String',
-        :'type' => :'String',
-        :'message' => :'String',
-        :'target_source_ref' => :'String',
-        :'target_type' => :'String',
-        :'updated_at' => :'DateTime'
       }
     end
 
@@ -98,128 +36,36 @@ module CatalogInventoryApiClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `CatalogInventoryApiClient::Task` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `CatalogInventoryApiClient::FullRefreshPersisterTask` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `CatalogInventoryApiClient::Task`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `CatalogInventoryApiClient::FullRefreshPersisterTask`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'archived_at')
-        self.archived_at = attributes[:'archived_at']
-      end
-
-      if attributes.key?(:'completed_at')
-        self.completed_at = attributes[:'completed_at']
-      end
-
-      if attributes.key?(:'input')
-        self.input = attributes[:'input']
-      end
-
-      if attributes.key?(:'output')
-        self.output = attributes[:'output']
-      end
-
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'source_id')
-        self.source_id = attributes[:'source_id']
-      end
-
-      if attributes.key?(:'state')
-        self.state = attributes[:'state']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'target_source_ref')
-        self.target_source_ref = attributes[:'target_source_ref']
-      end
-
-      if attributes.key?(:'target_type')
-        self.target_type = attributes[:'target_type']
-      end
-
-      if attributes.key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      pattern = Regexp.new(/^\d+$/)
-      if !@source_id.nil? && @source_id !~ pattern
-        invalid_properties.push("invalid value for \"source_id\", must conform to the pattern #{pattern}.")
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] source_id Value to be assigned
-    def source_id=(source_id)
-      pattern = Regexp.new(/^\d+$/)
-      if !source_id.nil? && source_id !~ pattern
-        fail ArgumentError, "invalid value for \"source_id\", must conform to the pattern #{pattern}."
-      end
-
-      @source_id = source_id
     end
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class &&
-          archived_at == o.archived_at &&
-          completed_at == o.completed_at &&
-          input == o.input &&
-          output == o.output &&
-          created_at == o.created_at &&
-          id == o.id &&
-          name == o.name &&
-          source_id == o.source_id &&
-          state == o.state &&
-          status == o.status &&
-          type == o.type &&
-          message == o.message &&
-          target_source_ref == o.target_source_ref &&
-          target_type == o.target_type &&
-          updated_at == o.updated_at
+      self.class == o.class
     end
 
     # @see the `==` method
@@ -231,7 +77,7 @@ module CatalogInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [archived_at, completed_at, input, output, created_at, id, name, source_id, state, status, type, message, target_source_ref, target_type, updated_at].hash
+      [].hash
     end
 
     # Builds the object from hash
