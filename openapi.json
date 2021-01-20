@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "description": "Catalog Inventory",
-    "version": "3.0.0",
+    "version": "1.0.0",
     "title": "Catalog Inventory",
     "contact": {
       "email": "support@redhat.com"
@@ -2255,7 +2255,7 @@
       "description": "Production Server",
       "variables": {
         "basePath": {
-          "default": "/api/catalog-inventory/v3.0"
+          "default": "/api/catalog-inventory/v1.0"
         }
       }
     },
@@ -2267,7 +2267,7 @@
           "default": "3000"
         },
         "basePath": {
-          "default": "/api/catalog-inventory/v3.0"
+          "default": "/api/catalog-inventory/v1.0"
         }
       }
     }
@@ -3498,6 +3498,29 @@
             "items": {
               "$ref": "#/components/schemas/Task"
             }
+          }
+        }
+      },
+      "Tenant": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ID"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "Sample Tenant"
+          },
+          "description": {
+            "type": "string",
+            "readOnly": true,
+            "example": "Description of the Tenant"
+          },
+          "external_tenant": {
+            "type": "string",
+            "readOnly": true,
+            "example": "External tenant identifier"
           }
         }
       }

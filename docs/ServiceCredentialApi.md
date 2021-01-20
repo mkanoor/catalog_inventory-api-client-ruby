@@ -1,6 +1,6 @@
 # CatalogInventoryApiClient::ServiceCredentialApi
 
-All URIs are relative to *https://cloud.redhat.com//api/catalog-inventory/v3.0*
+All URIs are relative to *https://cloud.redhat.com//api/catalog-inventory/v1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
