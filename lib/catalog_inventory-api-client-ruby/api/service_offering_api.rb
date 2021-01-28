@@ -19,42 +19,42 @@ module CatalogInventoryApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Invokes computing of ServiceInventories for given ServiceOffering
-    # Returns a Task id
+    # Invokes computing of ServiceInventories tags for given ServiceOffering
+    # Returns a collection of inventories tags
     # @param id [String] ID of the resource
     # @param applied_inventories_parameters_service_plan [AppliedInventoriesParametersServicePlan] Parameters defining input data for computing inventories
     # @param [Hash] opts the optional parameters
-    # @return [InlineResponse200]
-    def applied_inventories_for_service_offering(id, applied_inventories_parameters_service_plan, opts = {})
-      data, _status_code, _headers = applied_inventories_for_service_offering_with_http_info(id, applied_inventories_parameters_service_plan, opts)
+    # @return [TagsCollection]
+    def applied_inventories_tags_for_service_offering(id, applied_inventories_parameters_service_plan, opts = {})
+      data, _status_code, _headers = applied_inventories_tags_for_service_offering_with_http_info(id, applied_inventories_parameters_service_plan, opts)
       data
     end
 
-    # Invokes computing of ServiceInventories for given ServiceOffering
-    # Returns a Task id
+    # Invokes computing of ServiceInventories tags for given ServiceOffering
+    # Returns a collection of inventories tags
     # @param id [String] ID of the resource
     # @param applied_inventories_parameters_service_plan [AppliedInventoriesParametersServicePlan] Parameters defining input data for computing inventories
     # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponse200, Integer, Hash)>] InlineResponse200 data, response status code and response headers
-    def applied_inventories_for_service_offering_with_http_info(id, applied_inventories_parameters_service_plan, opts = {})
+    # @return [Array<(TagsCollection, Integer, Hash)>] TagsCollection data, response status code and response headers
+    def applied_inventories_tags_for_service_offering_with_http_info(id, applied_inventories_parameters_service_plan, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ServiceOfferingApi.applied_inventories_for_service_offering ...'
+        @api_client.config.logger.debug 'Calling API: ServiceOfferingApi.applied_inventories_tags_for_service_offering ...'
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling ServiceOfferingApi.applied_inventories_for_service_offering"
+        fail ArgumentError, "Missing the required parameter 'id' when calling ServiceOfferingApi.applied_inventories_tags_for_service_offering"
       end
       pattern = Regexp.new(/^\d+$/)
       if @api_client.config.client_side_validation && id !~ pattern
-        fail ArgumentError, "invalid value for 'id' when calling ServiceOfferingApi.applied_inventories_for_service_offering, must conform to the pattern #{pattern}."
+        fail ArgumentError, "invalid value for 'id' when calling ServiceOfferingApi.applied_inventories_tags_for_service_offering, must conform to the pattern #{pattern}."
       end
 
       # verify the required parameter 'applied_inventories_parameters_service_plan' is set
       if @api_client.config.client_side_validation && applied_inventories_parameters_service_plan.nil?
-        fail ArgumentError, "Missing the required parameter 'applied_inventories_parameters_service_plan' when calling ServiceOfferingApi.applied_inventories_for_service_offering"
+        fail ArgumentError, "Missing the required parameter 'applied_inventories_parameters_service_plan' when calling ServiceOfferingApi.applied_inventories_tags_for_service_offering"
       end
       # resource path
-      local_var_path = '/service_offerings/{id}/applied_inventories'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/service_offerings/{id}/applied_inventories_tags'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -73,7 +73,7 @@ module CatalogInventoryApiClient
       post_body = opts[:body] || @api_client.object_to_http_body(applied_inventories_parameters_service_plan) 
 
       # return_type
-      return_type = opts[:return_type] || 'InlineResponse200' 
+      return_type = opts[:return_type] || 'TagsCollection' 
 
       # auth_names
       auth_names = opts[:auth_names] || ['UserSecurity']
@@ -89,7 +89,7 @@ module CatalogInventoryApiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ServiceOfferingApi#applied_inventories_for_service_offering\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ServiceOfferingApi#applied_inventories_tags_for_service_offering\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
