@@ -1,10 +1,10 @@
 # CatalogInventoryApiClient::ServiceOfferingApi
 
-All URIs are relative to *https://cloud.redhat.com//api/catalog-inventory/v3.0*
+All URIs are relative to *https://cloud.redhat.com//api/catalog-inventory/v1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**applied_inventories_for_service_offering**](ServiceOfferingApi.md#applied_inventories_for_service_offering) | **POST** /service_offerings/{id}/applied_inventories | Invokes computing of ServiceInventories for given ServiceOffering
+[**applied_inventories_tags_for_service_offering**](ServiceOfferingApi.md#applied_inventories_tags_for_service_offering) | **POST** /service_offerings/{id}/applied_inventories_tags | Invokes computing of ServiceInventories tags for given ServiceOffering
 [**list_service_offering_service_credentials**](ServiceOfferingApi.md#list_service_offering_service_credentials) | **GET** /service_offerings/{id}/service_credentials | List ServiceCredentials for ServiceOffering
 [**list_service_offering_service_instances**](ServiceOfferingApi.md#list_service_offering_service_instances) | **GET** /service_offerings/{id}/service_instances | List ServiceInstances for ServiceOffering
 [**list_service_offering_service_offering_nodes**](ServiceOfferingApi.md#list_service_offering_service_offering_nodes) | **GET** /service_offerings/{id}/service_offering_nodes | List ServiceOfferingNodes for ServiceOffering
@@ -18,13 +18,13 @@ Method | HTTP request | Description
 
 
 
-## applied_inventories_for_service_offering
+## applied_inventories_tags_for_service_offering
 
-> InlineResponse200 applied_inventories_for_service_offering(id, applied_inventories_parameters_service_plan)
+> TagsCollection applied_inventories_tags_for_service_offering(id, applied_inventories_parameters_service_plan)
 
-Invokes computing of ServiceInventories for given ServiceOffering
+Invokes computing of ServiceInventories tags for given ServiceOffering
 
-Returns a Task id
+Returns a collection of inventories tags
 
 ### Example
 
@@ -43,11 +43,11 @@ id = 'id_example' # String | ID of the resource
 applied_inventories_parameters_service_plan = CatalogInventoryApiClient::AppliedInventoriesParametersServicePlan.new # AppliedInventoriesParametersServicePlan | Parameters defining input data for computing inventories
 
 begin
-  #Invokes computing of ServiceInventories for given ServiceOffering
-  result = api_instance.applied_inventories_for_service_offering(id, applied_inventories_parameters_service_plan)
+  #Invokes computing of ServiceInventories tags for given ServiceOffering
+  result = api_instance.applied_inventories_tags_for_service_offering(id, applied_inventories_parameters_service_plan)
   p result
 rescue CatalogInventoryApiClient::ApiError => e
-  puts "Exception when calling ServiceOfferingApi->applied_inventories_for_service_offering: #{e}"
+  puts "Exception when calling ServiceOfferingApi->applied_inventories_tags_for_service_offering: #{e}"
 end
 ```
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**TagsCollection**](TagsCollection.md)
 
 ### Authorization
 

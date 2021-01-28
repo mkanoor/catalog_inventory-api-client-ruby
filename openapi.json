@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "description": "Catalog Inventory",
-    "version": "3.0.0",
+    "version": "1.0.0",
     "title": "Catalog Inventory",
     "contact": {
       "email": "support@redhat.com"
@@ -1009,14 +1009,14 @@
         }
       }
     },
-    "/service_offerings/{id}/applied_inventories": {
+    "/service_offerings/{id}/applied_inventories_tags": {
       "post": {
         "tags": [
           "ServiceOffering"
         ],
-        "summary": "Invokes computing of ServiceInventories for given ServiceOffering",
-        "operationId": "appliedInventoriesForServiceOffering",
-        "description": "Returns a Task id",
+        "summary": "Invokes computing of ServiceInventories tags for given ServiceOffering",
+        "operationId": "appliedInventoriesTagsForServiceOffering",
+        "description": "Returns a collection of inventories tags",
         "parameters": [
           {
             "$ref": "#/components/parameters/ID"
@@ -1035,16 +1035,12 @@
         },
         "responses": {
           "200": {
-            "description": "Returns a task ID for the computing result",
+            "description": "Tags collection",
+            "description": "Returns a collection of inventories tags for the computing result",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "task_id": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/TagsCollection"
                 }
               }
             }
@@ -2255,7 +2251,7 @@
       "description": "Production Server",
       "variables": {
         "basePath": {
-          "default": "/api/catalog-inventory/v3.0"
+          "default": "/api/catalog-inventory/v1.0"
         }
       }
     },
@@ -2267,7 +2263,7 @@
           "default": "3000"
         },
         "basePath": {
-          "default": "/api/catalog-inventory/v3.0"
+          "default": "/api/catalog-inventory/v1.0"
         }
       }
     }
@@ -3498,6 +3494,29 @@
             "items": {
               "$ref": "#/components/schemas/Task"
             }
+          }
+        }
+      },
+      "Tenant": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/ID"
+          },
+          "name": {
+            "type": "string",
+            "readOnly": true,
+            "example": "Sample Tenant"
+          },
+          "description": {
+            "type": "string",
+            "readOnly": true,
+            "example": "Description of the Tenant"
+          },
+          "external_tenant": {
+            "type": "string",
+            "readOnly": true,
+            "example": "External tenant identifier"
           }
         }
       }
