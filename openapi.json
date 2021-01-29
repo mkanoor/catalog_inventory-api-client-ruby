@@ -1040,7 +1040,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TagsCollection"
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
                 }
               }
             }
